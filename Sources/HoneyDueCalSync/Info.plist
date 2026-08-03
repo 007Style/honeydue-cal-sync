@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.honeydue.calsync</string>
+    <key>CFBundleName</key>
+    <string>HoneyDueCalSync</string>
+    <key>CFBundleDisplayName</key>
+    <string>HoneyDue Calendar Sync</string>
+    <key>CFBundleVersion</key>
+    <string>5</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.6</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>HoneyDue Calendar Sync needs full calendar access to write blocks and check for duplicates.</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>HoneyDue Calendar Sync needs to read your Outlook calendar to sync events.</string>
+</dict>
+</plist>

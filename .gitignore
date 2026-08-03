@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Swift / Xcode
+.build/
+*.o
+*.d
+*.swp
+xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+*.moved-aside
+*.xccheckout
+
+# Build output (app bundle and staging dir; DMG is tracked for releases)
+build/HoneyDueCalSync.app/
+build/dmg-stage/
+build/.DS_Store
+
+# Google OAuth credentials (NEVER commit these)
+credentials.json
+token.json
+
+# App Support runtime files (user-specific, never commit)
+config.json
+state.json
+run.log
+
+# SPM cache
+.swiftpm/
+
+# Editor
+.vscode/
+*~

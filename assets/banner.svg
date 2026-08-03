@@ -1,0 +1,75 @@
+<svg width="600" height="100" viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="100" fill="#1e3a5f"/>
+  <!-- Honeycomb hex pattern (subtle) -->
+  <g opacity="0.07" fill="#FCD34D">
+    <polygon points="20,10 30,4 40,10 40,22 30,28 20,22"/>
+    <polygon points="40,10 50,4 60,10 60,22 50,28 40,22"/>
+    <polygon points="560,10 570,4 580,10 580,22 570,28 560,22"/>
+    <polygon points="540,10 550,4 560,10 560,22 550,28 540,22"/>
+    <polygon points="10,30 20,24 30,30 30,42 20,48 10,42"/>
+    <polygon points="570,70 580,64 590,70 590,82 580,88 570,82"/>
+    <polygon points="550,70 560,64 570,70 570,82 560,88 550,82"/>
+  </g>
+  <!-- Accent stripe -->
+  <rect x="0" y="0" width="6" height="100" fill="#FCD34D"/>
+  <!-- Mini bee icon -->
+  <g transform="translate(18, 14) scale(0.55)">
+    <circle cx="64" cy="64" r="60" fill="#FCD34D" stroke="#F59E0B" stroke-width="3"/>
+    <ellipse cx="64" cy="95" rx="22" ry="20" fill="#1e3a5f"/>
+    <polygon points="64,78 54,88 60,88" fill="#f7f8fa"/>
+    <polygon points="64,78 74,88 68,88" fill="#f7f8fa"/>
+    <polygon points="64,80 61,86 64,92 67,86" fill="#dc2626"/>
+    <ellipse cx="64" cy="72" rx="16" ry="12" fill="#FCD34D" stroke="#92400E" stroke-width="1.5"/>
+    <line x1="50" y1="69" x2="78" y2="69" stroke="#92400E" stroke-width="2.5"/>
+    <line x1="49" y1="74" x2="79" y2="74" stroke="#92400E" stroke-width="2.5"/>
+    <ellipse cx="42" cy="58" rx="14" ry="8" fill="rgba(186,230,253,0.75)" stroke="#7dd3fc" stroke-width="1" transform="rotate(-20 42 58)"/>
+    <ellipse cx="86" cy="58" rx="14" ry="8" fill="rgba(186,230,253,0.75)" stroke="#7dd3fc" stroke-width="1" transform="rotate(20 86 58)"/>
+    <circle cx="64" cy="46" r="16" fill="#FCD34D" stroke="#92400E" stroke-width="1.5"/>
+    <line x1="57" y1="32" x2="50" y2="22" stroke="#92400E" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="50" cy="21" r="3" fill="#92400E"/>
+    <line x1="71" y1="32" x2="78" y2="22" stroke="#92400E" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="78" cy="21" r="3" fill="#92400E"/>
+    <line x1="57" y1="43" x2="61" y2="47" stroke="#1f2328" stroke-width="2" stroke-linecap="round"/>
+    <line x1="61" y1="43" x2="57" y2="47" stroke="#1f2328" stroke-width="2" stroke-linecap="round"/>
+    <line x1="67" y1="43" x2="71" y2="47" stroke="#1f2328" stroke-width="2" stroke-linecap="round"/>
+    <line x1="71" y1="43" x2="67" y2="47" stroke="#1f2328" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 58 52 Q 64 49 70 52" stroke="#92400E" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="76" cy="40" rx="3" ry="4" fill="#93c5fd" opacity="0.9"/>
+    <polygon points="76,35 74,40 78,40" fill="#93c5fd" opacity="0.9"/>
+    <rect x="80" y="78" width="26" height="24" rx="3" fill="#ffffff" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="80" y="78" width="26" height="7" rx="3" fill="#dc2626"/>
+    <line x1="87" y1="76" x2="87" y2="80" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+    <line x1="93" y1="76" x2="93" y2="80" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+    <line x1="99" y1="76" x2="99" y2="80" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+    <rect x="83" y="88" width="4" height="3" rx="0.5" fill="#3b82d4"/>
+    <rect x="89" y="88" width="4" height="3" rx="0.5" fill="#3b82d4"/>
+    <rect x="95" y="88" width="4" height="3" rx="0.5" fill="#dc2626"/>
+    <rect x="83" y="93" width="4" height="3" rx="0.5" fill="#dc2626"/>
+    <rect x="89" y="93" width="4" height="3" rx="0.5" fill="#3b82d4"/>
+    <rect x="95" y="93" width="4" height="3" rx="0.5" fill="#3b82d4"/>
+    <line x1="74" y1="85" x2="82" y2="85" stroke="#FCD34D" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <!-- Title -->
+  <text x="90" y="42" font-family="-apple-system, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#FCD34D" letter-spacing="0.5">HoneyDue</text>
+  <text x="90" y="66" font-family="-apple-system, Segoe UI, sans-serif" font-size="16" font-weight="400" fill="#f7f8fa" letter-spacing="1.5">CALENDAR SYNC</text>
+  <text x="90" y="85" font-family="-apple-system, Segoe UI, sans-serif" font-size="11" fill="#93c5fd" font-style="italic">Keeping work and home in sync — without the secrets.</text>
+  <!-- Right calendar icon -->
+  <g transform="translate(520, 22)">
+    <rect x="0" y="0" width="52" height="52" rx="6" fill="#ffffff" opacity="0.08"/>
+    <rect x="0" y="0" width="52" height="16" rx="6" fill="#dc2626" opacity="0.7"/>
+    <line x1="14" y1="-2" x2="14" y2="6" stroke="#f7f8fa" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    <line x1="38" y1="-2" x2="38" y2="6" stroke="#f7f8fa" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    <rect x="6" y="20" width="8" height="6" rx="1" fill="#FCD34D" opacity="0.8"/>
+    <rect x="18" y="20" width="8" height="6" rx="1" fill="#FCD34D" opacity="0.8"/>
+    <rect x="30" y="20" width="8" height="6" rx="1" fill="#dc2626" opacity="0.8"/>
+    <rect x="6" y="30" width="8" height="6" rx="1" fill="#dc2626" opacity="0.8"/>
+    <rect x="18" y="30" width="8" height="6" rx="1" fill="#FCD34D" opacity="0.8"/>
+    <rect x="30" y="30" width="8" height="6" rx="1" fill="#FCD34D" opacity="0.8"/>
+    <rect x="42" y="30" width="8" height="6" rx="1" fill="#dc2626" opacity="0.8"/>
+    <rect x="6" y="40" width="8" height="6" rx="1" fill="#FCD34D" opacity="0.8"/>
+    <rect x="18" y="40" width="8" height="6" rx="1" fill="#dc2626" opacity="0.8"/>
+    <rect x="30" y="40" width="8" height="6" rx="1" fill="#FCD34D" opacity="0.8"/>
+    <rect x="42" y="40" width="8" height="6" rx="1" fill="#FCD34D" opacity="0.8"/>
+  </g>
+</svg>

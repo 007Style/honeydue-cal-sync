@@ -1,0 +1,49 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#FCD34D" stroke="#F59E0B" stroke-width="3"/>
+  <!-- Body (suit jacket) -->
+  <ellipse cx="64" cy="95" rx="22" ry="20" fill="#1e3a5f"/>
+  <!-- Suit lapels -->
+  <polygon points="64,78 54,88 60,88" fill="#f7f8fa"/>
+  <polygon points="64,78 74,88 68,88" fill="#f7f8fa"/>
+  <!-- Tie -->
+  <polygon points="64,80 61,86 64,92 67,86" fill="#dc2626"/>
+  <!-- Bee abdomen stripes -->
+  <ellipse cx="64" cy="72" rx="16" ry="12" fill="#FCD34D" stroke="#92400E" stroke-width="1.5"/>
+  <line x1="50" y1="69" x2="78" y2="69" stroke="#92400E" stroke-width="2.5"/>
+  <line x1="49" y1="74" x2="79" y2="74" stroke="#92400E" stroke-width="2.5"/>
+  <!-- Wings -->
+  <ellipse cx="42" cy="58" rx="14" ry="8" fill="rgba(186,230,253,0.75)" stroke="#7dd3fc" stroke-width="1" transform="rotate(-20 42 58)"/>
+  <ellipse cx="86" cy="58" rx="14" ry="8" fill="rgba(186,230,253,0.75)" stroke="#7dd3fc" stroke-width="1" transform="rotate(20 86 58)"/>
+  <!-- Head -->
+  <circle cx="64" cy="46" r="16" fill="#FCD34D" stroke="#92400E" stroke-width="1.5"/>
+  <!-- Antennae -->
+  <line x1="57" y1="32" x2="50" y2="22" stroke="#92400E" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="50" cy="21" r="3" fill="#92400E"/>
+  <line x1="71" y1="32" x2="78" y2="22" stroke="#92400E" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="78" cy="21" r="3" fill="#92400E"/>
+  <!-- X eyes (stressed) -->
+  <line x1="57" y1="43" x2="61" y2="47" stroke="#1f2328" stroke-width="2" stroke-linecap="round"/>
+  <line x1="61" y1="43" x2="57" y2="47" stroke="#1f2328" stroke-width="2" stroke-linecap="round"/>
+  <line x1="67" y1="43" x2="71" y2="47" stroke="#1f2328" stroke-width="2" stroke-linecap="round"/>
+  <line x1="71" y1="43" x2="67" y2="47" stroke="#1f2328" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stressed mouth -->
+  <path d="M 58 52 Q 64 49 70 52" stroke="#92400E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Sweat drop -->
+  <ellipse cx="76" cy="40" rx="3" ry="4" fill="#93c5fd" opacity="0.9"/>
+  <polygon points="76,35 74,40 78,40" fill="#93c5fd" opacity="0.9"/>
+  <!-- Mini calendar -->
+  <rect x="80" y="78" width="26" height="24" rx="3" fill="#ffffff" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="80" y="78" width="26" height="7" rx="3" fill="#dc2626"/>
+  <line x1="87" y1="76" x2="87" y2="80" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+  <line x1="93" y1="76" x2="93" y2="80" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+  <line x1="99" y1="76" x2="99" y2="80" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+  <rect x="83" y="88" width="4" height="3" rx="0.5" fill="#3b82d4"/>
+  <rect x="89" y="88" width="4" height="3" rx="0.5" fill="#3b82d4"/>
+  <rect x="95" y="88" width="4" height="3" rx="0.5" fill="#dc2626"/>
+  <rect x="83" y="93" width="4" height="3" rx="0.5" fill="#dc2626"/>
+  <rect x="89" y="93" width="4" height="3" rx="0.5" fill="#3b82d4"/>
+  <rect x="95" y="93" width="4" height="3" rx="0.5" fill="#3b82d4"/>
+  <!-- Arm holding calendar -->
+  <line x1="74" y1="85" x2="82" y2="85" stroke="#FCD34D" stroke-width="4" stroke-linecap="round"/>
+</svg>
