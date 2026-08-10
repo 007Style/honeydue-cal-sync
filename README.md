@@ -14,9 +14,19 @@ HoneyDue Calendar Sync is a macOS menu bar app that reads your work calendar and
 
 ## Download
 
-**➡️ [Download HoneyDue-Calendar-Sync-1.0.6.dmg](https://github.com/007Style/honeydue-cal-sync/releases/latest)**
+### App Releases
 
-**📊 [Download HoneyDue-CalSync.pptx — Project Presentation](https://github.com/007Style/honeydue-cal-sync/raw/main/build/HoneyDue-CalSync.pptx)**
+| Version | Download | Notes |
+|---|---|---|
+| **1.0.6** *(latest)* | [HoneyDue-Calendar-Sync-1.0.6.dmg](https://github.com/007Style/honeydue-cal-sync/raw/main/build/HoneyDue-Calendar-Sync-1.0.6.dmg) | Initial public release |
+
+> **For future releases:** add a new row at the top of this table (mark it *latest*), remove *latest* from the previous row, and keep all older rows — never delete them.
+
+### Presentation
+
+| File | Download |
+|---|---|
+| HoneyDue-CalSync.pptx | [📊 Download Project Presentation](https://github.com/007Style/honeydue-cal-sync/raw/main/build/HoneyDue-CalSync.pptx) |
 
 ---
 
