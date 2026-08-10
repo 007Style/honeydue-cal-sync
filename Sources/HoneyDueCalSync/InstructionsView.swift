@@ -53,7 +53,7 @@ struct InstructionsView: View {
                 header
                 VStack(alignment: .leading, spacing: 20) {
                     // Version line
-                    Text("HoneyDue Calendar Sync  v1.0.6")
+                    Text("HoneyDue Calendar Sync  v1.0.7")
                         .font(.system(size: 12, weight: .medium))
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -244,7 +244,7 @@ struct InstructionsView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.bottom, 8)
 
-                    Text("HoneyDue Calendar Sync v1.0.6  •  From the Minds of Daneyand & Bob")
+                    Text("HoneyDue Calendar Sync v1.0.7  •  From the Minds of Daneyand & Bob")
                         .font(.system(size: 11))
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity, alignment: .center)

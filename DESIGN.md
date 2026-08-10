@@ -502,4 +502,4 @@ version bumps. Missing any one of them causes the displayed version to be wrong.
 
 ---
 
-*Last updated: session 6 — ownership marker (`"honeyDue Calendar Sync"` in notes), duplicate guard, block-title rename sweep, calendar-change state invalidation. Session 7 — version bump checklist + release build instructions added to design.md. Session 8 — sync intervals revised (15 min, 30 min, 1–24 h); 35 unit tests added (DiffEngine, AppConfig, Models); build.sh gates on test pass; version bumped to 1.0.6.*
+*Last updated: session 6 — ownership marker (`"honeyDue Calendar Sync"` in notes), duplicate guard, block-title rename sweep, calendar-change state invalidation. Session 7 — version bump checklist + release build instructions added to design.md. Session 8 — sync intervals revised (15 min, 30 min, 1–24 h); 35 unit tests added (DiffEngine, AppConfig, Models); build.sh gates on test pass; version bumped to 1.0.6. Session 9 — fix 15/30 min sync interval clamp bug; version bumped to 1.0.7.*

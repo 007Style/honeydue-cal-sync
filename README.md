@@ -1,6 +1,6 @@
 # 🐝 HoneyDue Calendar Sync
 
-**Version 1.0.6** — Keeping work and home in sync, without the secrets.
+**Version 1.0.7** — Keeping work and home in sync, without the secrets.
 
 > *From the Minds of Daneyand & Bob*
 
@@ -18,7 +18,8 @@ HoneyDue Calendar Sync is a macOS menu bar app that reads your work calendar and
 
 | Version | Download | Notes |
 |---|---|---|
-| **1.0.6** *(latest)* | [HoneyDue-Calendar-Sync-1.0.6.dmg](https://github.com/007Style/honeydue-cal-sync/raw/main/build/HoneyDue-Calendar-Sync-1.0.6.dmg) | Initial public release |
+| **1.0.7** *(latest)* | [HoneyDue-Calendar-Sync-1.0.7.dmg](https://github.com/007Style/honeydue-cal-sync/raw/main/build/HoneyDue-Calendar-Sync-1.0.7.dmg) | Fix: 15 min and 30 min sync intervals now work correctly |
+| 1.0.6 | [HoneyDue-Calendar-Sync-1.0.6.dmg](https://github.com/007Style/honeydue-cal-sync/raw/main/build/HoneyDue-Calendar-Sync-1.0.6.dmg) | Initial public release |
 
 > **For future releases:** add a new row at the top of this table (mark it *latest*), remove *latest* from the previous row, and keep all older rows — never delete them.
 
@@ -39,7 +40,7 @@ HoneyDue Calendar Sync is a macOS menu bar app that reads your work calendar and
 
 ## Installation
 
-1. Download **`HoneyDue-Calendar-Sync-1.0.6.dmg`** from the [Releases page](https://github.com/007Style/honeydue-cal-sync/releases/latest)
+1. Download **`HoneyDue-Calendar-Sync-1.0.7.dmg`** from the [Releases page](https://github.com/007Style/honeydue-cal-sync/releases/latest)
 2. Open the DMG
 3. Drag **HoneyDueCalSync** into your **Applications** folder
 4. Launch the app — the 🐝 bee appears in your menu bar
@@ -173,7 +174,7 @@ swift test
 
 Output from `./build.sh`:
 - `build/HoneyDueCalSync.app` — signed .app bundle
-- `build/HoneyDue-Calendar-Sync-1.0.6.dmg` — drag-to-install disk image
+- `build/HoneyDue-Calendar-Sync-1.0.7.dmg` — drag-to-install disk image
 
 ### Check the log
 ```bash
@@ -215,7 +216,8 @@ honeydue-cal-sync/
 │   ├── icon.svg                         # App icon source
 │   └── banner.svg                       # GUI banner source
 ├── build/
-│   ├── HoneyDue-Calendar-Sync-1.0.6.dmg # Drag-to-install disk image
+│   ├── HoneyDue-Calendar-Sync-1.0.7.dmg # Drag-to-install disk image
+│   ├── HoneyDue-Calendar-Sync-1.0.6.dmg # Previous release (kept for download history)
 │   └── HoneyDue-CalSync.pptx            # Project presentation (downloadable)
 ├── DESIGN.md                            # Full design document and architecture reference
 └── GOOGLE_SETUP.md                      # Legacy OAuth guide (no longer needed — kept for reference)

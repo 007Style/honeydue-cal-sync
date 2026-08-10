@@ -10,7 +10,7 @@ set -euo pipefail
 APP_NAME="HoneyDueCalSync"
 DISPLAY_NAME="HoneyDue Calendar Sync"
 BUNDLE_ID="com.honeydue.calsync"
-VERSION="1.0.6"
+VERSION="1.0.7"
 ENTITLEMENTS="HoneyDueCalSync.entitlements"
 DMG_NAME="${DISPLAY_NAME// /-}-${VERSION}.dmg"   # HoneyDue-Calendar-Sync-1.0.dmg
 
