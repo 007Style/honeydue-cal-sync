@@ -41,8 +41,10 @@ RESOURCES_DIR="${CONTENTS}/Resources"
 DMG_STAGE="build/dmg-stage"
 
 # ── 1. Clean ──────────────────────────────────────────────────────────────────
+# Remove only transient build artefacts — do NOT wipe the whole build/ dir,
+# as that would delete previously committed DMGs and the presentation pptx.
 echo "🧹  Cleaning previous build..."
-rm -rf build
+rm -rf "${APP_DIR}" "${DMG_STAGE}"
 mkdir -p "$MACOS_DIR" "$RESOURCES_DIR" "$DMG_STAGE"
 
 # ── 2. Swift release build ────────────────────────────────────────────────────
