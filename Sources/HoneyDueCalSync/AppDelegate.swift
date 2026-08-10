@@ -164,11 +164,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Timer
 
     private func scheduleTimer() {
-        // In testing mode (-t), honour a 1-minute interval if selected;
-        // otherwise clamp to at least 60 minutes to prevent accidental rapid syncs.
-        let rawMinutes = testingMode ? config.syncIntervalMinutes
-                                     : max(config.syncIntervalMinutes, 60)
-        let interval = TimeInterval(rawMinutes * 60)
+        // Use the user's configured interval as-is (15, 30, 60 … 1440 min).
+        // Testing mode (-t) allows an additional 1-min value via the settings UI.
+        let interval = TimeInterval(config.syncIntervalMinutes * 60)
         let nextRun = Date().addingTimeInterval(interval)
         StatusState.shared.nextRunDate = nextRun
 
