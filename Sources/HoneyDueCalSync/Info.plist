@@ -9,9 +9,11 @@
     <key>CFBundleDisplayName</key>
     <string>HoneyDue Calendar Sync</string>
     <key>CFBundleVersion</key>
-    <string>5</string>
+    <string>6</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.7</string>
+    <string>1.0.8</string>
+    <key>LSUIElement</key>
+    <true/>
     <key>NSCalendarsUsageDescription</key>
     <string>HoneyDue Calendar Sync needs full calendar access to write blocks and check for duplicates.</string>
     <key>NSAppleEventsUsageDescription</key>
