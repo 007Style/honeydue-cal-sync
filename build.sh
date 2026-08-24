@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# build.sh — builds, signs, and packages HoneyDue Calendar Sync as a .dmg
+# build.sh — builds, signs, packages, and publishes HoneyDue Calendar Sync
+#
 # Usage:
-#   ./build.sh              # auto-detect signing identity
-#   ./build.sh --identity "Apple Development: daneyand@ibm.com (p52kt93359)"
+#   ./build.sh                        # build + publish GitHub release (default)
+#   ./build.sh --local                # build DMG only, no git commit / GitHub release
+#   ./build.sh --identity "Apple Development: you@example.com (TEAMID)"
+#   ./build.sh --local --identity "..."
 
 set -euo pipefail
 
@@ -12,13 +15,22 @@ DISPLAY_NAME="HoneyDue Calendar Sync"
 BUNDLE_ID="com.honeydue.calsync"
 VERSION="1.0.8"
 ENTITLEMENTS="HoneyDueCalSync.entitlements"
-DMG_NAME="${DISPLAY_NAME// /-}-${VERSION}.dmg"   # HoneyDue-Calendar-Sync-1.0.dmg
+DMG_NAME="${DISPLAY_NAME// /-}-${VERSION}.dmg"
+
+# ── Flags ─────────────────────────────────────────────────────────────────────
+LOCAL_ONLY=false
+SIGN_ID=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --local)     LOCAL_ONLY=true; shift ;;
+        --identity)  SIGN_ID="${2:-}"; shift 2 ;;
+        *)           echo "Unknown argument: $1"; exit 1 ;;
+    esac
+done
 
 # ── Signing identity ──────────────────────────────────────────────────────────
-if [[ "${1:-}" == "--identity" && -n "${2:-}" ]]; then
-    SIGN_ID="$2"
-else
-    # Auto-detect first valid Apple Development / Mac Developer cert
+if [[ -z "$SIGN_ID" ]]; then
     SIGN_ID=$(security find-identity -v -p codesigning \
         | grep -E "Apple Development|Mac Developer" \
         | head -1 \
@@ -39,6 +51,7 @@ CONTENTS="${APP_DIR}/Contents"
 MACOS_DIR="${CONTENTS}/MacOS"
 RESOURCES_DIR="${CONTENTS}/Resources"
 DMG_STAGE="build/dmg-stage"
+DMG_PATH="build/${DMG_NAME}"
 
 # ── 1. Clean ──────────────────────────────────────────────────────────────────
 # Remove only transient build artefacts — do NOT wipe the whole build/ dir,
@@ -47,7 +60,7 @@ echo "🧹  Cleaning previous build..."
 rm -rf "${APP_DIR}" "${DMG_STAGE}"
 mkdir -p "$MACOS_DIR" "$RESOURCES_DIR" "$DMG_STAGE"
 
-# ── 2. Swift release build ────────────────────────────────────────────────────
+# ── 2. Swift tests + release build ───────────────────────────────────────────
 echo "🧪  Running unit tests..."
 swift test 2>&1
 if [ $? -ne 0 ]; then
@@ -114,13 +127,101 @@ hdiutil create \
     -srcfolder "${DMG_STAGE}" \
     -ov \
     -format UDZO \
-    "build/${DMG_NAME}"
+    "${DMG_PATH}"
+
+echo "   ✓ DMG created: ${DMG_PATH}"
+
+# ── 6. Git commit + tag + GitHub release ──────────────────────────────────────
+if [[ "$LOCAL_ONLY" == "true" ]]; then
+    echo ""
+    echo "✅  Local build complete (--local flag set — skipping git/GitHub steps)."
+    echo "   App:  ${APP_DIR}"
+    echo "   DMG:  ${DMG_PATH}"
+    echo ""
+    echo "   To install: open ${DMG_PATH} and drag to Applications"
+    echo "   To remove quarantine after sharing:"
+    echo "     xattr -cr /Applications/${APP_NAME}.app"
+    exit 0
+fi
+
+echo ""
+echo "🐙  Publishing to GitHub..."
+
+# Check gh CLI is available
+if ! command -v gh &>/dev/null; then
+    echo "❌  'gh' CLI not found — install it with: brew install gh"
+    echo "   Skipping GitHub release. DMG is at: ${DMG_PATH}"
+    exit 1
+fi
+
+# Check for uncommitted source changes (warn but don't abort — DMG may be the only change)
+GIT_DIRTY=$(git status --porcelain | grep -v "^??" || true)
+if [[ -n "$GIT_DIRTY" ]]; then
+    echo "   Staging and committing changed files..."
+    git add -A
+    git commit -m "Release v${VERSION} — $(git diff --cached --name-only | tr '\n' ' ')" || true
+fi
+
+# Ensure DMG is staged if not already committed
+if git status --porcelain | grep -q "${DMG_NAME}"; then
+    git add "${DMG_PATH}"
+    git commit -m "Release v${VERSION} — add ${DMG_NAME}" || true
+fi
+
+# Tag (skip if tag already exists)
+if git rev-parse "v${VERSION}" &>/dev/null; then
+    echo "   Tag v${VERSION} already exists — skipping tag creation."
+else
+    git tag "v${VERSION}"
+    echo "   ✓ Tagged v${VERSION}"
+fi
+
+# Push commits + tag
+git push origin main
+git push origin "v${VERSION}"
+echo "   ✓ Pushed to GitHub"
+
+# Build release notes from a RELEASE_NOTES temp var (edit here for each version)
+# The notes are auto-generated; override by passing RELEASE_NOTES env var before calling build.sh
+RELEASE_NOTES="${RELEASE_NOTES:-"## ${DISPLAY_NAME} v${VERSION}
+
+### What's New
+See the README for full details.
+
+### Install
+1. Download \`${DMG_NAME}\` below
+2. Open the DMG and drag **${APP_NAME}** to your Applications folder
+3. Launch the app — the 🐝 bee appears in your menu bar
+
+> **First launch Gatekeeper warning:** Right-click the app → Open → click Open.
+> Or run \`xattr -cr /Applications/${APP_NAME}.app\` in Terminal.
+
+### Requirements
+- macOS 13 (Ventura) or later
+- Both work and personal calendars added to macOS Calendar.app via System Settings → Internet Accounts
+
+*From the Minds of Daneyand & Bob!*"}"
+
+# Create or update GitHub release
+if gh release view "v${VERSION}" &>/dev/null; then
+    echo "   Release v${VERSION} already exists on GitHub — uploading/replacing DMG asset..."
+    gh release upload "v${VERSION}" "${DMG_PATH}" --clobber
+    echo "   ✓ DMG asset updated on existing release"
+else
+    gh release create "v${VERSION}" \
+        "${DMG_PATH}" \
+        --title "${DISPLAY_NAME} v${VERSION}" \
+        --latest \
+        --notes "${RELEASE_NOTES}"
+    echo "   ✓ GitHub release v${VERSION} created"
+fi
 
 echo ""
 echo "✅  Done!"
-echo "   App:  build/${APP_NAME}.app"
-echo "   DMG:  build/${DMG_NAME}"
+echo "   App:     ${APP_DIR}"
+echo "   DMG:     ${DMG_PATH}"
+echo "   Release: https://github.com/007Style/honeydue-cal-sync/releases/tag/v${VERSION}"
 echo ""
-echo "   To install: open build/${DMG_NAME} and drag to Applications"
+echo "   To install: open ${DMG_PATH} and drag to Applications"
 echo "   To remove quarantine after sharing:"
 echo "     xattr -cr /Applications/${APP_NAME}.app"
